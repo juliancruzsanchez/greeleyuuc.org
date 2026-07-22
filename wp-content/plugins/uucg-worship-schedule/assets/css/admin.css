@@ -1,0 +1,112 @@
+/**
+ * UUCG Worship Schedule — admin
+ */
+
+.uucg-ws-admin {
+  max-width: 1080px;
+}
+
+.uucg-ws-admin__intro {
+  max-width: 52rem;
+  color: #3c434a;
+}
+
+.uucg-ws-admin__shortcode-box {
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-left: 4px solid #5c4d8a;
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin: 16px 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+}
+
+.uucg-ws-admin__shortcode-box code {
+  background: #f0f0f1;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+.uucg-ws-admin__status {
+  display: grid;
+  gap: 8px 16px;
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 782px) {
+  .uucg-ws-admin__status {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
+.uucg-ws-admin__error {
+  grid-column: 1 / -1;
+  color: #b32d2e;
+}
+
+.uucg-ws-admin__refresh-form {
+  grid-column: 1 / -1;
+  margin: 4px 0 0;
+}
+
+.uucg-ws-admin__grid {
+  display: grid;
+  gap: 18px;
+}
+
+@media (min-width: 960px) {
+  .uucg-ws-admin__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.uucg-ws-admin__card {
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 8px;
+  padding: 8px 18px 16px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.uucg-ws-admin__card h2 {
+  font-size: 1.1rem;
+  margin: 12px 0 4px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f1;
+}
+
+.uucg-ws-admin__card .form-table th {
+  width: 150px;
+  padding-left: 0;
+}
+
+.uucg-ws-admin__preview,
+.uucg-ws-admin__help {
+  margin-top: 24px;
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 8px;
+  padding: 12px 18px;
+}
+
+.uucg-ws-admin__preview summary,
+.uucg-ws-admin__help summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.uucg-ws-admin__preview table {
+  margin-top: 12px;
+}
+
+.uucg-ws-admin__help ol {
+  margin: 12px 0 8px 1.2em;
+}

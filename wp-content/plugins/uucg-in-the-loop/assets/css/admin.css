@@ -1,0 +1,118 @@
+/**
+ * UUCG In the Loop — admin settings
+ */
+
+.uucg-itl-admin {
+  max-width: 1100px;
+}
+
+.uucg-itl-admin__intro {
+  font-size: 14px;
+  max-width: 52rem;
+  color: #3c434a;
+}
+
+.uucg-itl-admin__shortcode-box {
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-left: 4px solid #5c4d8a;
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin: 16px 0 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+}
+
+.uucg-itl-admin__shortcode-box code {
+  background: #f0f0f1;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+.uucg-itl-admin__grid {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 960px) {
+  .uucg-itl-admin__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .uucg-itl-admin__grid > .uucg-itl-admin__card:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.uucg-itl-admin__card {
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 8px;
+  padding: 8px 20px 16px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.uucg-itl-admin__card h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.15rem;
+  margin: 12px 0 4px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f1;
+}
+
+.uucg-itl-admin__badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #f0f0f1;
+  color: #1d2327;
+}
+
+.uucg-itl-admin__card--tiktok .uucg-itl-admin__badge {
+  background: #111;
+  color: #fff;
+}
+
+.uucg-itl-admin__card--facebook .uucg-itl-admin__badge {
+  background: #1877f2;
+  color: #fff;
+}
+
+.uucg-itl-admin__card--x .uucg-itl-admin__badge {
+  background: #0f1419;
+  color: #fff;
+}
+
+.uucg-itl-admin__card .form-table th {
+  width: 160px;
+  padding-left: 0;
+}
+
+.uucg-itl-admin__help {
+  margin-top: 28px;
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 8px;
+  padding: 12px 18px;
+}
+
+.uucg-itl-admin__help summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.uucg-itl-admin__help ul {
+  margin: 12px 0 8px 1.2em;
+}
+
+.uucg-itl-admin__help li {
+  margin-bottom: 6px;
+}

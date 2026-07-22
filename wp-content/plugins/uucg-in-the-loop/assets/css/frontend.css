@@ -1,0 +1,548 @@
+/**
+ * UUCG In the Loop — frontend
+ * Warm modern glass layout aligned with uua-congregation-2027 tokens.
+ */
+
+.uucg-itl {
+  --itl-ink: var(--uucg-ink, #2a221f);
+  --itl-ink-soft: var(--uucg-ink-soft, #4a3f3a);
+  --itl-muted: var(--uucg-muted, #6f625a);
+  --itl-cream: var(--uucg-cream, #fbf6f0);
+  --itl-cream-deep: var(--uucg-cream-deep, #f3e8dc);
+  --itl-surface: var(--uucg-surface-strong, rgba(255, 253, 250, 0.94));
+  --itl-glass: var(--uucg-glass, rgba(255, 255, 255, 0.55));
+  --itl-border: var(--uucg-glass-border, rgba(255, 255, 255, 0.65));
+  --itl-primary: var(--uucg-primary, #5c4d8a);
+  --itl-primary-deep: var(--uucg-primary-deep, #3f3560);
+  --itl-primary-soft: var(--uucg-primary-soft, #ebe6f5);
+  --itl-accent: var(--uucg-accent, #c45c26);
+  --itl-radius: var(--uucg-radius, 1.25rem);
+  --itl-radius-sm: var(--uucg-radius-sm, 0.85rem);
+  --itl-radius-pill: var(--uucg-radius-pill, 999px);
+  --itl-shadow: var(--uucg-shadow, 0 10px 30px rgba(42, 34, 31, 0.08), 0 2px 8px rgba(42, 34, 31, 0.04));
+  --itl-shadow-lg: var(--uucg-shadow-lg, 0 22px 50px rgba(42, 34, 31, 0.12), 0 6px 16px rgba(42, 34, 31, 0.06));
+  --itl-ease: var(--uucg-ease, cubic-bezier(0.22, 1, 0.36, 1));
+  --itl-font: var(--uucg-font, "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif);
+  --itl-display: var(--uucg-display, "Fraunces", Georgia, "Times New Roman", serif);
+  --itl-rainbow: var(
+    --uucg-rainbow,
+    linear-gradient(
+      90deg,
+      #ffd54a 0%,
+      #ff9f1c 14%,
+      #ff5c7a 28%,
+      #e040a0 42%,
+      #8b5cf6 56%,
+      #2dd4bf 70%,
+      #7dd33a 84%,
+      #ffd54a 100%
+    )
+  );
+
+  --itl-tiktok: #111111;
+  --itl-facebook: #1877f2;
+  --itl-x: #0f1419;
+
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 0 auto 1.25rem;
+  padding: 0.25rem 0 0.5rem;
+  font-family: var(--itl-font);
+  color: var(--itl-ink);
+  /* No outer card chrome — the page shell already provides the stage */
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.uucg-itl *,
+.uucg-itl *::before,
+.uucg-itl *::after {
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Header                                                                     */
+/* -------------------------------------------------------------------------- */
+
+.uucg-itl__header {
+  text-align: center;
+  margin: 0 auto 1.75rem;
+  max-width: 42rem;
+}
+
+.uucg-itl__title {
+  margin: 0 0 0.5rem;
+  font-family: var(--itl-display);
+  font-weight: 600;
+  font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--itl-ink);
+}
+
+.uucg-itl__subtitle {
+  margin: 0 auto 1rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--itl-muted);
+  max-width: 34rem;
+}
+
+.uucg-itl__rainbow {
+  height: 4px;
+  width: min(12rem, 50%);
+  margin: 0 auto;
+  border-radius: var(--itl-radius-pill);
+  background: var(--itl-rainbow);
+  background-size: 200% 100%;
+  animation: uucg-itl-shine 4s linear infinite;
+}
+
+@keyframes uucg-itl-shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Tabs                                                                       */
+/* -------------------------------------------------------------------------- */
+
+.uucg-itl__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+  margin: 0 auto 1.5rem;
+  padding: 0.35rem;
+  max-width: 40rem;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(42, 34, 31, 0.07);
+  border-radius: var(--itl-radius-pill);
+  box-shadow: 0 2px 10px rgba(42, 34, 31, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.uucg-itl__tab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--itl-ink-soft);
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--itl-radius-pill);
+  cursor: pointer;
+  transition:
+    background 0.25s var(--itl-ease),
+    color 0.25s var(--itl-ease),
+    box-shadow 0.25s var(--itl-ease),
+    transform 0.25s var(--itl-ease);
+  min-height: 2.75rem;
+  flex: 1 1 auto;
+  min-width: 6.5rem;
+}
+
+.uucg-itl__tab:hover {
+  background: rgba(42, 34, 31, 0.05);
+  color: var(--itl-ink);
+}
+
+.uucg-itl__tab:focus-visible {
+  outline: 2px solid var(--itl-primary);
+  outline-offset: 2px;
+}
+
+.uucg-itl__tab.is-active {
+  background: var(--itl-primary);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(92, 77, 138, 0.28);
+}
+
+body.grey-red .uucg-itl__tab.is-active {
+  box-shadow: 0 8px 22px rgba(168, 31, 69, 0.28);
+}
+
+.uucg-itl__tab.is-active:hover {
+  background: var(--itl-primary-deep);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.uucg-itl__tab-icon {
+  display: inline-flex;
+  line-height: 0;
+  opacity: 0.95;
+}
+
+.uucg-itl__tab-icon svg {
+  display: block;
+}
+
+/* Platform accent ring on active tab icon */
+.uucg-itl__tab--instagram.is-active {
+  background: linear-gradient(135deg, #f58529, #dd2a7b 50%, #8134af);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(221, 42, 123, 0.28);
+}
+
+.uucg-itl__tab--tiktok.is-active {
+  background: linear-gradient(135deg, #111 0%, #2b2b2b 55%, #00f2ea 160%);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+}
+
+.uucg-itl__tab--facebook.is-active {
+  background: linear-gradient(135deg, #1877f2 0%, #0d5bbf 100%);
+  box-shadow: 0 8px 22px rgba(24, 119, 242, 0.32);
+}
+
+.uucg-itl__tab--x.is-active {
+  background: linear-gradient(135deg, #0f1419 0%, #2a2f36 100%);
+  box-shadow: 0 8px 22px rgba(15, 20, 25, 0.28);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Panels + toolbar                                                           */
+/* -------------------------------------------------------------------------- */
+
+.uucg-itl__panel {
+  animation: uucg-itl-fade 0.35s var(--itl-ease);
+}
+
+.uucg-itl__panel[hidden] {
+  display: none !important;
+}
+
+@keyframes uucg-itl-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.uucg-itl__panel-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 1rem;
+}
+
+.uucg-itl__follow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--itl-radius-pill);
+  background: var(--itl-primary-soft);
+  color: var(--itl-primary-deep);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border: 1px solid rgba(42, 34, 31, 0.06);
+  transition:
+    background 0.2s var(--itl-ease),
+    transform 0.2s var(--itl-ease),
+    box-shadow 0.2s var(--itl-ease);
+}
+
+.uucg-itl__follow:hover,
+.uucg-itl__follow:focus {
+  background: #fff;
+  color: var(--itl-primary-deep);
+  text-decoration: none;
+  box-shadow: var(--itl-shadow);
+  transform: translateY(-1px);
+}
+
+.uucg-itl__follow-arrow {
+  transition: transform 0.2s var(--itl-ease);
+}
+
+.uucg-itl__follow:hover .uucg-itl__follow-arrow {
+  transform: translateX(3px);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Responsive card grid                                                       */
+/* -------------------------------------------------------------------------- */
+
+.uucg-itl__grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.uucg-itl__grid--cols-2,
+.uucg-itl__grid--cols-3,
+.uucg-itl__grid--cols-4 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .uucg-itl__grid--cols-2,
+  .uucg-itl__grid--cols-3,
+  .uucg-itl__grid--cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 980px) {
+  .uucg-itl__grid--cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .uucg-itl__grid--cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.uucg-itl__grid--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Cards                                                                      */
+/* -------------------------------------------------------------------------- */
+
+.uucg-itl-card {
+  position: relative;
+  background: var(--itl-surface);
+  border: 1px solid rgba(42, 34, 31, 0.08);
+  border-radius: var(--itl-radius);
+  box-shadow: var(--itl-shadow);
+  overflow: hidden;
+  transition:
+    transform 0.3s var(--itl-ease),
+    box-shadow 0.3s var(--itl-ease);
+  min-height: 8rem;
+}
+
+.uucg-itl-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--itl-primary);
+  opacity: 0.85;
+  z-index: 1;
+}
+
+.uucg-itl-card--tiktok::before {
+  background: linear-gradient(90deg, #25f4ee, #fe2c55, #000);
+}
+
+.uucg-itl-card--facebook::before {
+  background: linear-gradient(90deg, #1877f2, #42a5f5);
+}
+
+.uucg-itl-card--x::before {
+  background: linear-gradient(90deg, #0f1419, #536471);
+}
+
+.uucg-itl-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--itl-shadow-lg);
+}
+
+.uucg-itl-card__media {
+  padding: 0.85rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 12rem;
+  background:
+    radial-gradient(ellipse at top, rgba(255, 255, 255, 0.7), transparent 60%),
+    var(--itl-cream);
+}
+
+/* Official embeds can inject wide elements — constrain them. */
+.uucg-itl-card__media > * {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.uucg-itl-card__media iframe,
+.uucg-itl-card__media .tiktok-embed,
+.uucg-itl-card__media .twitter-tweet,
+.uucg-itl-card__media .fb-post,
+.uucg-itl-card__media .fb-page {
+  max-width: 100% !important;
+}
+
+/* TikTok vertical player — no page/embed scrollbars */
+.uucg-itl-card__media--tiktok {
+  position: relative;
+  display: block;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  /* Portrait phone aspect, capped for desktop grids */
+  aspect-ratio: 9 / 16;
+  min-height: 480px;
+  max-height: min(720px, 85vh);
+  overflow: hidden !important;
+  overscroll-behavior: none;
+  background: #0a0a0a;
+  touch-action: pan-y; /* page can still scroll; iframe content is clipped */
+}
+
+.uucg-itl-tiktok-iframe {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  border: 0 !important;
+  display: block;
+  background: #000;
+  overflow: hidden !important;
+  /* Kill scrollbars on the embed frame */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.uucg-itl-tiktok-iframe::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Any iframe TikTok injects (blockquote path) */
+.uucg-itl-card--tiktok iframe {
+  overflow: hidden !important;
+  scrolling: no;
+}
+
+.uucg-itl-tiktok-fallback {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  margin: 0 !important;
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 0.85rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
+}
+
+.uucg-itl-tiktok-fallback a {
+  color: #fff !important;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+
+.uucg-itl-tiktok-iframe + .uucg-itl-tiktok-fallback {
+  /* iframe covers the fallback when it loads */
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* TikTok blockquote pre-hydration (short links only) */
+.uucg-itl-card .tiktok-embed {
+  margin: 0 !important;
+  min-width: 0 !important;
+  min-height: 480px;
+  overflow: hidden !important;
+}
+
+.uucg-itl-card .tiktok-embed iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 580px !important;
+  height: 700px !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  scrolling: no;
+}
+
+@media (min-width: 640px) {
+  .uucg-itl-card__media--tiktok {
+    max-width: 340px;
+    margin-inline: auto;
+  }
+}
+
+/* Twitter pre-hydration */
+.uucg-itl-card .twitter-tweet {
+  margin: 0 auto !important;
+}
+
+.uucg-itl-card--timeline .uucg-itl-card__media,
+.uucg-itl-card--page .uucg-itl-card__media {
+  padding: 0.5rem;
+  min-height: 20rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Empty state                                                                */
+/* -------------------------------------------------------------------------- */
+
+.uucg-itl__empty {
+  text-align: center;
+  padding: 2.25rem 1.25rem;
+  border-radius: var(--itl-radius);
+  background: transparent;
+  border: 1px dashed rgba(42, 34, 31, 0.12);
+  box-shadow: none;
+  color: var(--itl-muted);
+}
+
+.uucg-itl__empty-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--itl-primary-soft);
+  color: var(--itl-primary-deep);
+  margin-bottom: 0.85rem;
+}
+
+.uucg-itl__empty-title {
+  margin: 0 0 0.35rem;
+  font-family: var(--itl-display);
+  font-size: 1.25rem;
+  color: var(--itl-ink);
+}
+
+.uucg-itl__empty-text {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reduced motion                                                             */
+/* -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .uucg-itl__rainbow,
+  .uucg-itl__panel,
+  .uucg-itl-card,
+  .uucg-itl__tab,
+  .uucg-itl__follow {
+    animation: none !important;
+    transition: none !important;
+  }
+}

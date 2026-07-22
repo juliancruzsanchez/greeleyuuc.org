@@ -1,0 +1,440 @@
+/**
+ * UUCG Newsletter — modern signup forms
+ */
+
+.uucg-nl {
+  --nl-ink: var(--uucg-ink, #2a221f);
+  --nl-muted: var(--uucg-muted, #6f625a);
+  --nl-cream: var(--uucg-cream, #fbf6f0);
+  --nl-primary: var(--uucg-primary, #a81f45);
+  --nl-primary-deep: var(--uucg-primary-deep, #6f1430);
+  --nl-primary-soft: var(--uucg-primary-soft, #fce8ee);
+  --nl-gold: var(--uucg-gold, #e6a93a);
+  --nl-radius: var(--uucg-radius, 1.25rem);
+  --nl-radius-pill: var(--uucg-radius-pill, 999px);
+  --nl-shadow: var(--uucg-shadow, 0 10px 30px rgba(42, 34, 31, 0.08));
+  --nl-font: var(--uucg-font, "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif);
+  --nl-display: var(--uucg-display, "Fraunces", Georgia, serif);
+  --nl-rainbow: var(
+    --uucg-rainbow,
+    linear-gradient(90deg, #ffd54a, #ff9f1c, #ff5c7a, #e040a0, #8b5cf6, #2dd4bf, #7dd33a)
+  );
+
+  box-sizing: border-box;
+  font-family: var(--nl-font);
+  color: var(--nl-ink);
+  margin: 1.5rem auto 2rem;
+  max-width: 42rem;
+}
+
+.uucg-nl *,
+.uucg-nl *::before,
+.uucg-nl *::after {
+  box-sizing: border-box;
+}
+
+.uucg-nl__inner {
+  position: relative;
+}
+
+/* Card (default) — homepage / contact hero block */
+.uucg-nl--card .uucg-nl__inner {
+  padding: 2rem 1.75rem 1.75rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(230, 169, 58, 0.18), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 0% 100%, rgba(168, 31, 69, 0.1), transparent 50%),
+    rgba(255, 253, 250, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--nl-radius);
+  box-shadow: var(--nl-shadow), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  text-align: center;
+}
+
+.uucg-nl--card .uucg-nl__inner::before {
+  content: "";
+  display: block;
+  width: min(8rem, 40%);
+  height: 3px;
+  margin: 0 auto 1.15rem;
+  border-radius: 999px;
+  background: var(--nl-rainbow);
+  background-size: 200% 100%;
+}
+
+/*
+ * Full — same cream/glass color language as the smaller card,
+ * but full width of the content area (great for homepage).
+ */
+.uucg-nl--full {
+  max-width: none;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.uucg-nl--full .uucg-nl__inner {
+  padding: 2.35rem clamp(1.25rem, 4vw, 2.75rem) 2.1rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(230, 169, 58, 0.18), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 0% 100%, rgba(168, 31, 69, 0.1), transparent 50%),
+    rgba(255, 253, 250, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--nl-radius);
+  box-shadow: var(--nl-shadow), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  text-align: center;
+}
+
+.uucg-nl--full .uucg-nl__inner::before {
+  content: "";
+  display: block;
+  width: min(10rem, 36%);
+  height: 3px;
+  margin: 0 auto 1.25rem;
+  border-radius: 999px;
+  background: var(--nl-rainbow);
+  background-size: 200% 100%;
+}
+
+.uucg-nl--full .uucg-nl__header {
+  margin-bottom: 1.35rem;
+}
+
+.uucg-nl--full .uucg-nl__title {
+  font-size: clamp(1.65rem, 3vw, 2.1rem);
+}
+
+.uucg-nl--full .uucg-nl__subtitle {
+  max-width: 36rem;
+  font-size: 1.08rem;
+}
+
+.uucg-nl--full .uucg-nl__row {
+  max-width: 34rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Band — primary-colored strip */
+.uucg-nl--band {
+  max-width: 42rem;
+  margin: 2rem auto;
+}
+
+.uucg-nl--band .uucg-nl__inner {
+  padding: 2.25rem 1.5rem;
+  background: linear-gradient(135deg, var(--nl-primary) 0%, var(--nl-primary-deep) 100%);
+  border-radius: var(--nl-radius);
+  box-shadow: 0 14px 36px rgba(111, 20, 48, 0.22);
+  text-align: center;
+  color: #fff;
+}
+
+.uucg-nl--band .uucg-nl__title,
+.uucg-nl--band .uucg-nl__subtitle,
+.uucg-nl--band .uucg-nl__fineprint {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.uucg-nl--band .uucg-nl__subtitle {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.uucg-nl--band .uucg-nl__fineprint {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/*
+ * Full-band — same primary gradient colors as band,
+ * full width of the content area.
+ */
+.uucg-nl--full-band {
+  max-width: none;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.uucg-nl--full-band .uucg-nl__inner {
+  padding: 2.5rem clamp(1.25rem, 4vw, 2.75rem);
+  background: linear-gradient(135deg, var(--nl-primary) 0%, var(--nl-primary-deep) 100%);
+  border-radius: var(--nl-radius);
+  box-shadow: 0 14px 36px rgba(111, 20, 48, 0.22);
+  text-align: center;
+  color: #fff;
+}
+
+.uucg-nl--full-band .uucg-nl__title,
+.uucg-nl--full-band .uucg-nl__subtitle,
+.uucg-nl--full-band .uucg-nl__fineprint {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.uucg-nl--full-band .uucg-nl__subtitle {
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 36rem;
+  font-size: 1.08rem;
+}
+
+.uucg-nl--full-band .uucg-nl__fineprint {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.uucg-nl--full-band .uucg-nl__title {
+  font-size: clamp(1.65rem, 3vw, 2.1rem);
+}
+
+.uucg-nl--full-band .uucg-nl__header {
+  margin-bottom: 1.35rem;
+}
+
+.uucg-nl--full-band .uucg-nl__row {
+  max-width: 34rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Compact / footer */
+.uucg-nl--compact {
+  max-width: none;
+  margin: 0;
+}
+
+.uucg-nl--compact .uucg-nl__inner {
+  padding: 0;
+  text-align: left;
+}
+
+.uucg-nl--compact .uucg-nl__title {
+  font-size: 1.15rem;
+  margin-bottom: 0.35rem;
+}
+
+.uucg-nl--compact .uucg-nl__subtitle {
+  font-size: 0.92rem;
+  margin-bottom: 0.85rem;
+}
+
+.uucg-nl--minimal {
+  max-width: 28rem;
+  margin: 1rem auto;
+}
+
+.uucg-nl--minimal .uucg-nl__inner {
+  padding: 0;
+}
+
+.uucg-nl__header {
+  margin-bottom: 1.15rem;
+}
+
+.uucg-nl__title {
+  margin: 0 0 0.4rem;
+  font-family: var(--nl-display);
+  font-size: clamp(1.45rem, 2.8vw, 1.85rem);
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: inherit;
+}
+
+.uucg-nl__subtitle {
+  margin: 0 auto;
+  max-width: 28rem;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: var(--nl-muted);
+}
+
+.uucg-nl__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  justify-content: center;
+  align-items: center; /* never stretch the email field tall */
+}
+
+.uucg-nl--compact .uucg-nl__row {
+  justify-content: flex-start;
+}
+
+.uucg-nl__input {
+  flex: 1 1 14rem;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 14rem;
+  align-self: center;
+  width: 100%;
+  min-width: 0;
+  /* Single-line field only — theme form styles can otherwise inflate height on mobile */
+  height: 3rem !important;
+  min-height: 3rem !important;
+  max-height: 3rem !important;
+  line-height: 1.25 !important;
+  padding: 0 1.1rem !important;
+  border-radius: var(--nl-radius-pill) !important;
+  border: 1px solid rgba(42, 34, 31, 0.12) !important;
+  background: #fff !important;
+  font-size: 1rem !important;
+  font-family: inherit !important;
+  color: var(--nl-ink) !important;
+  box-shadow: 0 2px 8px rgba(42, 34, 31, 0.04) !important;
+  resize: none !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.uucg-nl__input:focus {
+  border-color: var(--nl-primary) !important;
+  box-shadow: 0 0 0 3px rgba(168, 31, 69, 0.15) !important;
+  outline: none !important;
+}
+
+.uucg-nl--band .uucg-nl__input,
+.uucg-nl--full-band .uucg-nl__input {
+  border-color: transparent !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+}
+
+.uucg-nl__btn {
+  appearance: none;
+  flex: 0 0 auto;
+  align-self: center;
+  height: 3rem;
+  min-height: 3rem;
+  max-height: 3rem;
+  padding: 0 1.4rem;
+  border: 0;
+  border-radius: var(--nl-radius-pill);
+  background: linear-gradient(135deg, var(--nl-primary), var(--nl-primary-deep));
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(111, 20, 48, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.uucg-nl__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(111, 20, 48, 0.28);
+  filter: brightness(1.04);
+  color: #fff;
+}
+
+.uucg-nl__btn:active {
+  transform: translateY(0);
+}
+
+.uucg-nl__btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+
+.uucg-nl--band .uucg-nl__btn,
+.uucg-nl--full-band .uucg-nl__btn {
+  background: #fff;
+  color: var(--nl-primary-deep);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.uucg-nl--band .uucg-nl__btn:hover,
+.uucg-nl--full-band .uucg-nl__btn:hover {
+  color: var(--nl-primary-deep);
+  background: #fff8f0;
+}
+
+.uucg-nl__status {
+  margin: 0.85rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.uucg-nl__status.is-success {
+  color: #1f6b3a;
+}
+
+.uucg-nl--band .uucg-nl__status.is-success,
+.uucg-nl--full-band .uucg-nl__status.is-success {
+  color: #d4f5e0;
+}
+
+.uucg-nl__status.is-error {
+  color: #a81f45;
+}
+
+.uucg-nl--band .uucg-nl__status.is-error,
+.uucg-nl--full-band .uucg-nl__status.is-error {
+  color: #ffd0da;
+}
+
+.uucg-nl__fineprint {
+  margin: 0.75rem 0 0;
+  font-size: 0.8rem;
+  color: var(--nl-muted);
+  line-height: 1.4;
+}
+
+.uucg-nl__hp {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+@media (max-width: 520px) {
+  .uucg-nl--card .uucg-nl__inner,
+  .uucg-nl--full .uucg-nl__inner {
+    padding: 1.5rem 1.15rem 1.35rem;
+  }
+
+  .uucg-nl__row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .uucg-nl__input {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    height: 3rem !important;
+    min-height: 3rem !important;
+    max-height: 3rem !important;
+  }
+
+  .uucg-nl__btn {
+    width: 100%;
+    height: 3rem;
+    min-height: 3rem;
+    max-height: 3rem;
+  }
+}
+
+/* Beat theme/global form styles that inflate inputs */
+body.uucg-modern .uucg-nl__input,
+body .uucg-nl input[type="email"].uucg-nl__input,
+.uucg-nl input.uucg-nl__input {
+  height: 3rem !important;
+  min-height: 3rem !important;
+  max-height: 3rem !important;
+  line-height: 1.25 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 1.1rem !important;
+  padding-right: 1.1rem !important;
+}

@@ -1,0 +1,48 @@
+# Local / OS
+.DS_Store
+*.log
+.env
+.env.*
+
+# WordPress core (install via WP/Local — not app source)
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/xmlrpc.php
+/license.txt
+/readme.html
+/index.php
+/local-xdebuginfo.php
+
+# Config with secrets (keep local only)
+/wp-config.php
+/wp-config-local.php
+
+# Third-party themes
+/wp-content/themes/uua-congregation/
+/wp-content/themes/twentytwenty*/
+/wp-content/themes/index.php
+
+# Third-party plugins (custom uucg-* plugins are tracked)
+/wp-content/plugins/events-manager/
+/wp-content/plugins/jetpack/
+/wp-content/plugins/list-category-posts/
+/wp-content/plugins/mailchimp/
+/wp-content/plugins/ml-slider/
+/wp-content/plugins/so-widgets-bundle/
+/wp-content/plugins/uua-services/
+/wp-content/plugins/wordpress-seo/
+/wp-content/plugins/index.php
+
+# Runtime
+/wp-content/uploads/
+/wp-content/upgrade/
+/wp-content/cache/
+/wp-content/backup*/
+/wp-content/jetpack-waf/
+/wp-content/mu-plugins/
+/wp-content/debug.log
+
+# Keep structure markers if present
+!/wp-content/plugins/.gitkeep
+!/wp-content/themes/.gitkeep
