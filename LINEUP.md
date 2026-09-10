@@ -2,110 +2,103 @@
 
 ## Mirror
 
-Live site (Weebly, `https://www.greeleyuuc.org`) scraped via `mirror/scripts/mirror.py` on 2026-09-10.
+Live site (Weebly, `https://www.greeleyuuc.org`) scraped via `scripts/mirror_live.py` on 2026-09-10.
 
 - 321 unique URLs discovered from `sitemap.xml`
 - 321 HTML pages saved to `mirror/html/`
 - 0 failures
 - Top-level inventory: 23 root pages + 198 audio service recordings + 56 archived ministerial musings + 42 hybrid service video recordings + 1 Earth Day subpage + 1 Bonnie & Hollis subpage
-- Manifests: `mirror/manifest.json` (full), `mirror/inventory.json` (grouped by section), `mirror/top_pages.json` (23 top pages only)
+- Manifests: `mirror/manifest.json` (full), `mirror/inventory.json` (grouped by section), `mirror/top_pages.json` (23 root pages)
 
 Key finding: live site is still on Weebly (`x-host: ...weebly.net`). All `wp-content/` work in this repo is the new WordPress instance that will replace it.
 
-## Plugin-driven pages created
+## Plugin-driven pages
 
 The three `uucg-*` plugins only provide shortcodes, so each one needs a WordPress page to host it. All three pages use the `templates/template-no-title.php` template (body class `uucg-no-title-or-path`), which suppresses the page-title heading and breadcrumbs so the plugin's own header renders cleanly.
 
 | Page | Slug | Post ID | Template | Shortcode | Replaces (live Weebly page) |
 |------|------|--------:|----------|-----------|------------------------------|
-| In the Loop | `in-the-loop` | 6 | No Title or Path | `[in_the_loop]` | (new — no live equivalent) |
-| Worship Schedule | `worship-schedule` | 7 | No Title or Path | `[worship_schedule]` | (new — live `sunday-service.html` is descriptive, not a calendar) |
+| In the Loop | `in-the-loop` | 6 | No Title or Path | `[in_the_loop]` | (new) |
+| Worship Schedule | `worship-schedule` | 7 | No Title or Path | `[worship_schedule]` | (new) |
 | Subscribe — UU Connections | `newsletter` | 8 | No Title or Path | `[uucg_newsletter style="card" show_title="1"]` | `subscribe-to-uu-connections-weekly-newsletter.html` |
 
-## How each plugin renders
+## Migrated content pages
 
-### `uucg-in-the-loop` → `in-the-loop`
-- Tabs: TikTok, Instagram, Facebook, X
-- Configure platform profiles / URLs in **Settings → In the Loop**
-- Renders nothing until at least one platform is linked; shows an admin-facing empty state otherwise
-- Assets: `wp-content/plugins/uucg-in-the-loop/assets/css/frontend.css`, `assets/js/frontend.js`
-- Loads Facebook/X SDKs on demand via `frontend.js`
+Body content was extracted with `scripts/extract_mirror.py` and imported with `scripts/import_pages.py`. Both use the Weebly HTML structure as-is and just strip scripts, social-share buttons, comments, and rewrite image / link / audio URLs to absolute.
 
-### `uucg-worship-schedule` → `worship-schedule`
-- Pulls from a Google Sheet (default ID + GID are seeded; replace with the UUCG sheet in **Settings → Worship Schedule**)
-- Cron: `uucg_ws_refresh_schedule` runs hourly; cache key `uucg_ws_services_cache`
-- Default view: `list` (toggle to `calendar`)
-- Force a single view with shortcode attr: `[worship_schedule view="list"]` or `[worship_schedule view="calendar"]`
-- Quarter filter: `[worship_schedule quarter="spring"]` (autumn / winter / spring / summer / general)
-- Empty until the sheet URL is set; shows a soft alert while using the stale cache
+| Page | Slug | Post ID |
+|------|------|--------:|
+| About Us | `about-us` | 9 |
+| Additional Resources | `additional-resources` | 10 |
+| Bonnie & Hollis' Greeley Trib Commentary | `bonnie-hollis-greeley-trib-commentary` | 11 |
+| Calendar | `calendar` | 12 |
+| Contact | `contact` | 13 |
+| COVID 19 Response | `covid-19-response` | 14 |
+| Education | `education` | 15 |
+| Get Involved | `get-involved` | 16 |
+| History | `history` | 17 |
+| Membership | `membership` | 18 |
+| Minister, Board, & Staff | `minister-board-staff` | 19 |
+| Nature Mandalas & Painted Rocks | `nature-mandalas-painted-rocks` | 20 |
+| Pledging | `pledging` | 21 |
+| Social Justice | `social-justice` | 22 |
+| Sunday Service | `sunday-service` | 23 |
+| UUCG and the Arts | `uucg-and-the-arts` | 24 |
 
-### `uucg-newsletter` → `newsletter`
-- Mailchimp one-field signup. **Settings → Newsletter**: API key + audience ID (or fall back to the official Mailchimp plugin's `mc_api_key` / `mc_list_id` if `use_mc_plugin` is on, which is the default)
-- Styles: `card` (default, this page), `full`, `band`, `full-band`, `compact`, `minimal`
-- Use `style="band"` or `style="full-band"` for footer placement, `style="compact"` for sidebar
-- `show_title="0"` to hide the inner header (use page title instead)
+## Archive index pages not migrated
 
-## Theme shortcode pages still needed
+The 5 archive index pages are empty once the sub-archive pages are not migrated. They were intentionally skipped so the menu does not link to dead ends.
 
-These are not plugin pages but use shortcodes that the modern theme adds, so they need a host page to be discoverable.
+- `services-audio-only` (would list 198 sub-pages, none migrated)
+- `video-recordings-of-recent-hybrid-services` (42 sub-pages, none)
+- `archived-monthly-ministerial-musings-from-the-past` (56 sub-pages, none)
+- `bonnie--hollis-commentary` (1 sub-page, none)
+- `earth-day-fair-and-film` (1 sub-page, none)
 
-| Page | Shortcode | Source | Replaces (live) |
-|------|-----------|--------|------------------|
-| Staff & Leadership | `[uucg_staff]` | `themes/uua-congregation-2027/includes/staff-directory.php` | `minister-board--staff.html` |
+The Weebly "Subscribe to UU Connections" form page is also skipped because the plugin-driven `/newsletter/` page replaces it.
 
-## Content-only pages still to migrate (no plugin)
+## Menus
 
-These are 1:1 content moves from the Weebly site. None use plugin shortcodes.
+Built with `scripts/wire_menus.py` and assigned to the `uua-congregation` parent theme's nav locations.
 
-| WP page | Source (live) | Notes |
-|---------|---------------|-------|
-| About Us | `about-us.html` | "Our Faith" intro, worship time, inclusivity language |
-| History | `history.html` | UUCG / Greeley UU history |
-| Contact | `contact.html` | Address, phone, email, building rental notes |
-| Get Involved | `get-involved.html` | Volunteer roles + flow |
-| Membership | `membership.html` | Visit / Participate / Belong / Join |
-| Sunday Service | `sunday-service.html` | Descriptive page about what Sunday service is (not the schedule) |
-| Pledging | `pledging.html` | |
-| Social Justice | `social-justice.html` | |
-| COVID-19 Response | `covid-19-response.html` | |
-| Education | `education.html` | |
-| UUCG and the Arts | `uucg-and-the-arts.html` | |
-| Earth Day Fair and Film | `earth-day-fair-and-film.html` | |
-| Bonnie & Hollis' Greeley Trib Commentary | `bonnie--hollis-greeley-trib-commentary.html` | |
-| Bonnie & Hollis Commentary | `bonnie--hollis-commentary.html` | |
-| Services (Audio Only) | `services-audio-only.html` | Index page for the 198 archived audio services |
-| Video Recordings of Recent Hybrid Services | `video-recordings-of-recent-hybrid-services.html` | Index page for the 42 video recordings |
-| ARCHIVED: Monthly Ministerial Musings | `archived-monthly-ministerial-musings-from-the-past.html` | Index page for 56 reflections |
-| Additional Resources | `additional-resources.html` | |
-| Calendar | `calendar.html` | Likely `events-manager`-driven; needs a plugin choice or a custom Events page |
+**Primary** (assigned to `primary_navigation`):
 
-## Sub-archive migration (bulk)
+- Home
+- About
+  - About Us
+  - History
+  - Minister, Board, & Staff
+  - Contact
+- Community
+  - Get Involved
+  - In the Loop
+  - Bonnie & Hollis' Greeley Trib Commentary
+- Worship
+  - Sunday Service
+  - Worship Schedule
+  - Additional Resources
+- News & Reminders
+  - Calendar
+  - Education
+  - Subscribe
+  - Pledging
+  - COVID 19 Response
+  - Social Justice
+  - UUCG and the Arts
+  - Membership
+  - Nature Mandalas & Painted Rocks
 
-Three section indexes are linked to a large number of sub-pages (198 / 56 / 42). Each sub-page is a standalone article in the live site. WordPress can host these as a custom post type (or as Posts under a category) so the index pages list them via a shortcode or `WP_Query`. The `events-manager` plugin, if kept, can take the Calendar page; the audio / video / musings archives need a decision (custom post type vs. Posts category vs. flat Pages).
+**Footer** (assigned to `footer_navigation`): Contact, Sunday Service, Worship Schedule, Calendar, Subscribe.
 
-## Menu + nav setup (not done yet)
+## Skipped per user instruction
 
-Local site has no menus assigned. The 3 created pages + the `About / Community / Worship / News & Reminders / Nature Mandalas` structure from the live nav is the natural starting point. Run:
+- Bulk migration of the 298 sub-archive pages (audio services, video recordings, ministerial musings, and the 2 single-sub-page archives). The extractor at `scripts/extract_mirror.py` still produces these in `mirror/extracted/` for future use; the importer skips them.
 
-```bash
-wp menu create "Primary"
-# then add items via wp menu item add-post ...
-```
+## What still needs human input
 
-## What was done in this pass
-
-- 3 plugin pages created: `in-the-loop`, `worship-schedule`, `newsletter`
-- All 3 use `templates/template-no-title.php`
-- All 3 return HTTP 200 on the local URL
-- Mirror captured (321 pages, no failures)
-- Plan documented in this file
-
-## What is NOT in this pass
-
-- Content migration of the 19 non-plugin pages above
-- Bulk migration of audio/video/musings sub-archives (298 pages)
-- Menu wiring
-- Mailchimp API key + audience ID (still in WP defaults — fill in **Settings → Newsletter**)
-- In the Loop platform handles (TikTok / Instagram / Facebook / X) — fill in **Settings → In the Loop**
-- Worship Schedule sheet URL — defaults are seeded but check **Settings → Worship Schedule** points at the real UUCG sheet
-- Customizer contact info (address / phone / email / hours) — `theme_mod`s are empty so the footer contact block renders nothing
+1. **Mailchimp API key + audience ID** in Settings → Newsletter.
+2. **At least one social platform handle or URL** in Settings → In the Loop.
+3. **Google Sheet URL** in Settings → Worship Schedule (defaults are seeded; confirm they point at the real UUCG sheet).
+4. **Address / phone / email / hours** in the Customizer so the footer contact block renders.
+5. **Static front page** choice (Customizer → Homepage settings) — currently the site shows the default WP behavior; the live Weebly site has a static landing page.
+6. **Theme `[uucg_staff]` shortcode** if the user wants to swap the migrated `minister-board-staff` content for the modern theme's directory shortcode.
