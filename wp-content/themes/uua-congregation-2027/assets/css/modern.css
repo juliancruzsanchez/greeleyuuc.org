@@ -4519,29 +4519,38 @@ body.uucg-modern.uucg-staff-page .wp-block-column:empty {
 body.uucg-modern .uucg-page-article {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 clamp(1rem, 3vw, 2rem) 3rem;
+  padding: 0 clamp(1rem, 3vw, 2rem) 2rem;
 }
 
 body.uucg-modern .uucg-page-header {
-  margin: 0 0 1.5rem;
+  margin: 0 0 1rem;
   text-align: left;
   border-bottom: 1px solid var(--uucg-rule, rgba(0, 0, 0, 0.08));
-  padding-bottom: 1rem;
+  padding-bottom: 0.75rem;
 }
 
 body.uucg-modern .uucg-page-title {
   font-family: "Fraunces", "Lora", Georgia, serif;
-  font-size: clamp(1.75rem, 3.4vw, 2.4rem);
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
   line-height: 1.15;
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.35rem;
   letter-spacing: -0.01em;
   color: var(--uucg-ink, #2a2a2a);
 }
 
 body.uucg-modern .uucg-page-content {
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.6;
   color: var(--uucg-ink-soft, #3f3f3f);
+}
+
+/* All photos on the site get a soft radius by default. The minister
+   portrait overrides to a full circle; the home hero chalice is a
+   background image, so this rule does not affect it. */
+body.uucg-modern img {
+  border-radius: var(--uucg-radius, 14px);
+  max-width: 100%;
+  height: auto;
 }
 
 body.uucg-modern .uucg-page-content > h2:first-child {
@@ -4594,16 +4603,46 @@ body.uucg-modern .wsite-multicol-col {
       read as sub-sections of the page, not competing with the page title. */
 body.uucg-modern .uucg-page-content h2 {
   font-family: "Fraunces", "Lora", Georgia, serif;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 600;
   line-height: 1.3;
-  margin: 1.75rem 0 0.5rem;
+  margin: 1.5rem 0 0.4rem;
+  color: var(--uucg-ink, #2a2a2a);
+}
+
+body.uucg-modern .uucg-page-content h3 {
+  font-family: "Fraunces", "Lora", Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 1.25rem 0 0.3rem;
   color: var(--uucg-ink, #2a2a2a);
 }
 
 body.uucg-modern .uucg-page-content h2.wsite-content-title:first-child {
   /* First Weebly section heading sits just under the page title. */
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+/* Tighten the default paragraph rhythm so pages don't have huge gaps
+   between short blocks of text. */
+body.uucg-modern .uucg-page-content p {
+  margin: 0 0 0.85rem;
+}
+
+body.uucg-modern .uucg-page-content p:last-child {
+  margin-bottom: 0;
+}
+
+body.uucg-modern .uucg-page-content ul,
+body.uucg-modern .uucg-page-content ol {
+  margin: 0 0 1rem;
+  padding-left: 1.4rem;
+}
+
+body.uucg-modern .uucg-page-content li {
+  margin-bottom: 0.25rem;
+  line-height: 1.55;
 }
 
 /* 5. Weebly video / audio / form placeholders. */
@@ -4649,7 +4688,7 @@ body.uucg-modern .uucg-home {
 
 body.uucg-modern .uucg-home-hero {
   position: relative;
-  min-height: 520px;
+  min-height: 440px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4659,7 +4698,7 @@ body.uucg-modern .uucg-home-hero {
     linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.55) 100%),
     url("../images/hero-chalice.jpg") center 56% / cover no-repeat;
   margin-top: -1.25rem;
-  padding: 4rem 1.5rem;
+  padding: 3rem 1.5rem;
 }
 
 body.uucg-modern .uucg-home-hero__inner {
@@ -4675,7 +4714,7 @@ body.uucg-modern .uucg-home-hero__kicker {
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  margin: 0 0 1.25rem;
+  margin: 0 0 0.9rem;
   padding: 0.4rem 0.85rem;
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 999px;
@@ -4757,7 +4796,7 @@ body.uucg-modern .uucg-home-visit__value:hover {
 
 body.uucg-modern .uucg-home-mission {
   background: var(--uucg-bg, #fff);
-  padding: 5rem 1.5rem 4rem;
+  padding: 3.5rem 1.5rem 2.5rem;
 }
 
 body.uucg-modern .uucg-home-mission__inner {
@@ -4765,7 +4804,7 @@ body.uucg-modern .uucg-home-mission__inner {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 3rem;
+  gap: 2.25rem;
 }
 
 body.uucg-modern .uucg-home-mission__item {
@@ -4824,7 +4863,7 @@ body.uucg-modern .uucg-home-mission__link:hover {
 
 body.uucg-modern .uucg-home-schedule {
   background: var(--uucg-surface, #faf7f2);
-  padding: 4.5rem 1.5rem;
+  padding: 3.25rem 1.5rem;
 }
 
 body.uucg-modern .uucg-home-schedule__inner {
@@ -4885,7 +4924,7 @@ body.uucg-modern .uucg-home-schedule__widget .uucg-ws {
 
 body.uucg-modern .uucg-home-news {
   background: var(--uucg-bg, #fff);
-  padding: 4.5rem 1.5rem;
+  padding: 3.25rem 1.5rem;
 }
 
 body.uucg-modern .uucg-home-news__inner {
@@ -4987,7 +5026,7 @@ body.uucg-modern .uucg-home-quote__cite {
 body.uucg-modern .uucg-home-newsletter {
   background: var(--uucg-ink, #2a2a2a);
   color: #fff;
-  padding: 4rem 1.5rem;
+  padding: 3rem 1.5rem;
   text-align: center;
 }
 
@@ -5052,8 +5091,8 @@ body.uucg-modern .uucg-home-newsletter .uucg-nl__fineprint {
 
 /* Sanctuary image at the top of the schedule copy column. */
 body.uucg-modern .uucg-home-schedule__media {
-  margin: 0 0 1.5rem;
-  border-radius: 8px;
+  margin: 0 0 1.25rem;
+  border-radius: var(--uucg-radius, 14px);
   overflow: hidden;
   background: var(--uucg-rule, rgba(0, 0, 0, 0.08));
 }
@@ -5261,7 +5300,7 @@ body.uucg-modern .uucg-page-content .uucg-btn-ghost:hover {
 body.uucg-modern .uucg-page-content .uucg-rule {
   border: 0;
   border-top: 1px solid var(--uucg-rule, rgba(0, 0, 0, 0.08));
-  margin: 2.5rem 0;
+  margin: 1.75rem 0;
 }
 
 /* Pledging page specifics ----------------------------------------------- */
