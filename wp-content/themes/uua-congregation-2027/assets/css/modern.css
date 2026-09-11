@@ -4544,11 +4544,13 @@ body.uucg-modern .uucg-page-content {
   color: var(--uucg-ink-soft, #3f3f3f);
 }
 
-/* All photos on the site get a soft radius by default. The minister
-   portrait overrides to a full circle; the home hero chalice is a
-   background image, so this rule does not affect it. */
+/* All photos on the site get a rounded card look by default: soft
+   border + generous radius. The minister portrait overrides to a
+   full circle; the home hero chalice is a background image, so this
+   rule does not affect it. */
 body.uucg-modern img {
-  border-radius: var(--uucg-radius, 14px);
+  border-radius: var(--uucg-radius-lg, 1.75rem);
+  border: 1px solid var(--uucg-rule, rgba(0, 0, 0, 0.08));
   max-width: 100%;
   height: auto;
 }
@@ -4688,7 +4690,7 @@ body.uucg-modern .uucg-home {
 
 body.uucg-modern .uucg-home-hero {
   position: relative;
-  min-height: 440px;
+  min-height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4698,7 +4700,7 @@ body.uucg-modern .uucg-home-hero {
     linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.55) 100%),
     url("../images/hero-chalice.jpg") center 56% / cover no-repeat;
   margin-top: -1.25rem;
-  padding: 3rem 1.5rem;
+  padding: 2.5rem 1.5rem;
 }
 
 body.uucg-modern .uucg-home-hero__inner {
@@ -4754,10 +4756,10 @@ body.uucg-modern .uucg-home-visit {
 body.uucg-modern .uucg-home-visit__inner {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 1.5rem 1.5rem;
+  padding: 1.1rem 1.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.25rem 2.5rem;
+  gap: 1rem 2.5rem;
   text-align: center;
 }
 
@@ -4796,7 +4798,7 @@ body.uucg-modern .uucg-home-visit__value:hover {
 
 body.uucg-modern .uucg-home-mission {
   background: var(--uucg-bg, #fff);
-  padding: 3.5rem 1.5rem 2.5rem;
+  padding: 2.75rem 1.5rem 2rem;
 }
 
 body.uucg-modern .uucg-home-mission__inner {
@@ -4804,7 +4806,7 @@ body.uucg-modern .uucg-home-mission__inner {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2.25rem;
+  gap: 1.75rem;
 }
 
 body.uucg-modern .uucg-home-mission__item {
@@ -4838,9 +4840,9 @@ body.uucg-modern .uucg-home-mission__title {
 
 body.uucg-modern .uucg-home-mission__body {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--uucg-ink-soft, #3f3f3f);
-  margin: 0 0 1rem;
+  margin: 0 0 0.75rem;
 }
 
 body.uucg-modern .uucg-home-mission__link {
@@ -4863,7 +4865,7 @@ body.uucg-modern .uucg-home-mission__link:hover {
 
 body.uucg-modern .uucg-home-schedule {
   background: var(--uucg-surface, #faf7f2);
-  padding: 3.25rem 1.5rem;
+  padding: 2.75rem 1.5rem;
 }
 
 body.uucg-modern .uucg-home-schedule__inner {
@@ -4924,7 +4926,7 @@ body.uucg-modern .uucg-home-schedule__widget .uucg-ws {
 
 body.uucg-modern .uucg-home-news {
   background: var(--uucg-bg, #fff);
-  padding: 3.25rem 1.5rem;
+  padding: 2.75rem 1.5rem;
 }
 
 body.uucg-modern .uucg-home-news__inner {
@@ -5026,7 +5028,7 @@ body.uucg-modern .uucg-home-quote__cite {
 body.uucg-modern .uucg-home-newsletter {
   background: var(--uucg-ink, #2a2a2a);
   color: #fff;
-  padding: 3rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   text-align: center;
 }
 
@@ -5092,7 +5094,7 @@ body.uucg-modern .uucg-home-newsletter .uucg-nl__fineprint {
 /* Sanctuary image at the top of the schedule copy column. */
 body.uucg-modern .uucg-home-schedule__media {
   margin: 0 0 1.25rem;
-  border-radius: var(--uucg-radius, 14px);
+  border-radius: var(--uucg-radius-lg, 1.75rem);
   overflow: hidden;
   background: var(--uucg-rule, rgba(0, 0, 0, 0.08));
 }
