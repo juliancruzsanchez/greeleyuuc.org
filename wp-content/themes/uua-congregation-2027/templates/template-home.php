@@ -95,10 +95,36 @@ get_header();
 	<section class="uucg-home-schedule" aria-label="<?php esc_attr_e( 'Worship schedule', 'uucg-modern' ); ?>">
 		<div class="uucg-home-schedule__inner">
 			<div class="uucg-home-schedule__copy">
-				<p class="uucg-home-schedule__kicker"><?php esc_html_e( 'Sundays', 'uucg-modern' ); ?></p>
+				<figure class="uucg-home-schedule__media">
+					<img
+						src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/sanctuary.jpg' ); ?>"
+						alt="<?php esc_attr_e( 'UUCG sanctuary and grounds', 'uucg-modern' ); ?>"
+						loading="lazy"
+					/>
+				</figure>
+				<p class="uucg-home-schedule__kicker"><?php esc_html_e( 'Sundays at the church', 'uucg-modern' ); ?></p>
 				<h2 class="uucg-home-schedule__title"><?php esc_html_e( 'We gather in love and fellowship.', 'uucg-modern' ); ?></h2>
 				<p class="uucg-home-schedule__body"><?php esc_html_e( 'Worship, foster spiritual growth, serve humanity, and understand ourselves and our universe. All are welcome at the table.', 'uucg-modern' ); ?></p>
-				<a class="uucg-home-mission__link" href="<?php echo esc_url( home_url( '/worship-schedule/' ) ); ?>"><?php esc_html_e( 'See the full schedule', 'uucg-modern' ); ?> <span aria-hidden="true">→</span></a>
+
+				<ul class="uucg-home-schedule__expect" aria-label="<?php esc_attr_e( 'What to expect', 'uucg-modern' ); ?>">
+					<li>
+						<span class="uucg-home-schedule__expect-num">01</span>
+						<span class="uucg-home-schedule__expect-text"><strong><?php esc_html_e( 'Music and chalice lighting.', 'uucg-modern' ); ?></strong> <?php esc_html_e( 'A blend of hymns, choir, and instrumental pieces to open the hour.', 'uucg-modern' ); ?></span>
+					</li>
+					<li>
+						<span class="uucg-home-schedule__expect-num">02</span>
+						<span class="uucg-home-schedule__expect-text"><strong><?php esc_html_e( 'A story for the week.', 'uucg-modern' ); ?></strong> <?php esc_html_e( 'A reflection, reading, or sermon rooted in our values and the wider world.', 'uucg-modern' ); ?></span>
+					</li>
+					<li>
+						<span class="uucg-home-schedule__expect-num">03</span>
+						<span class="uucg-home-schedule__expect-text"><strong><?php esc_html_e( 'Time together.', 'uucg-modern' ); ?></strong> <?php esc_html_e( 'Coffee, conversation, and connection after the service.', 'uucg-modern' ); ?></span>
+					</li>
+				</ul>
+
+				<a class="uucg-home-schedule__cta" href="<?php echo esc_url( home_url( '/sunday-service/' ) ); ?>">
+					<?php esc_html_e( 'Plan your visit', 'uucg-modern' ); ?>
+					<span aria-hidden="true">→</span>
+				</a>
 			</div>
 			<div class="uucg-home-schedule__widget">
 				<?php echo do_shortcode( '[worship_schedule view="list" show_header="0" default_view="list" show_past="0" show_empty="1"]' ); ?>

@@ -5041,3 +5041,173 @@ body.uucg-modern .uucg-home-newsletter .uucg-nl__btn {
 body.uucg-modern .uucg-home-newsletter .uucg-nl__fineprint {
   color: rgba(255, 255, 255, 0.55);
 }
+
+
+/* =========================================================================
+   UUCG Warm Modern (2027) — home page v1.7 (schedule column visuals)
+   ========================================================================= */
+
+/* Sanctuary image at the top of the schedule copy column. */
+body.uucg-modern .uucg-home-schedule__media {
+  margin: 0 0 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--uucg-rule, rgba(0, 0, 0, 0.08));
+}
+
+body.uucg-modern .uucg-home-schedule__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+}
+
+/* "What to expect" numbered list — a richer left column. */
+body.uucg-modern .uucg-home-schedule__expect {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+body.uucg-modern .uucg-home-schedule__expect li {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  align-items: baseline;
+  gap: 0.85rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--uucg-rule, rgba(0, 0, 0, 0.08));
+}
+
+body.uucg-modern .uucg-home-schedule__expect li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+body.uucg-modern .uucg-home-schedule__expect-num {
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--uucg-primary);
+  padding-top: 0.1rem;
+}
+
+body.uucg-modern .uucg-home-schedule__expect-text {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--uucg-ink-soft, #3f3f3f);
+}
+
+/* Plan-your-visit button — solid pill, primary color. */
+body.uucg-modern .uucg-home-schedule__cta {
+  display: inline-block;
+  background: var(--uucg-primary);
+  color: #fff;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+body.uucg-modern .uucg-home-schedule__cta:hover {
+  background: var(--uucg-ink, #2a2a2a);
+  transform: translateY(-1px);
+}
+
+/* News + Quote column tightening: hide the empty news section if there are
+   no posts so the quote column flows beside the schedule. */
+body.uucg-modern .uucg-home-news {
+  border-top: 1px solid var(--uucg-rule, rgba(0, 0, 0, 0.06));
+}
+
+/* The newsletter on the home page is on a dark band — give the plugin's
+   form a touch more presence. */
+body.uucg-modern .uucg-home-newsletter .uucg-nl {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+body.uucg-modern .uucg-home-newsletter .uucg-nl__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+body.uucg-modern .uucg-home-newsletter .uucg-nl__form {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+body.uucg-modern .uucg-home-newsletter .uucg-nl__row {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+body.uucg-modern .uucg-home-newsletter .uucg-nl__input {
+  flex: 1 1 auto;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.75rem 1.1rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+body.uucg-modern .uucg-home-newsletter .uucg-nl__input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--uucg-primary);
+}
+
+body.uucg-modern .uucg-home-newsletter .uucg-nl__input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+body.uucg-modern .uucg-home-newsletter .uucg-nl__btn {
+  background: var(--uucg-primary);
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.75rem 1.4rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body.uucg-modern .uucg-home-newsletter .uucg-nl__btn:hover {
+  background: #fff;
+  color: var(--uucg-primary);
+}
+
+body.uucg-modern .uucg-home-newsletter .uucg-nl__status {
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+}
+
+body.uucg-modern .uucg-home-newsletter .uucg-nl__fineprint {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+body.uucg-modern .uucg-home-newsletter .uucg-nl__hp {
+  display: none;
+}
