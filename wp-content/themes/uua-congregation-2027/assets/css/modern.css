@@ -4512,11 +4512,14 @@ body.uucg-modern.uucg-staff-page .wp-block-column:empty {
    Bump the theme Version in style.css when changing this file.
    ========================================================================= */
 
-/* 1. New full-width page template (overrides the parent's sidebar layout). */
+/* 1. Full-width page template (overrides the parent's sidebar layout).
+   The article spans the content column edge-to-edge; inner blocks
+   (the Fair Share calculator, the Team roster, etc.) set their own
+   max-width so the reading column stays readable. */
 body.uucg-modern .uucg-page-article {
-  max-width: 760px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem 3rem;
+  padding: 0 clamp(1rem, 3vw, 2rem) 3rem;
 }
 
 body.uucg-modern .uucg-page-header {
@@ -5326,4 +5329,97 @@ body.uucg-modern .uucg-page-content .uucg-paypal {
 
 body.uucg-modern .uucg-page-content .uucg-paypal p {
   margin: 0.4rem 0;
+}
+
+/* About Us page specifics ----------------------------------------------- */
+
+body.uucg-modern .uucg-page-content .uucg-about-intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 1.5rem 0 1rem;
+}
+
+@media (min-width: 820px) {
+  body.uucg-modern .uucg-page-content .uucg-about-intro {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+body.uucg-modern .uucg-page-content .uucg-about-intro h2 {
+  font-family: "Fraunces", "Lora", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.4rem, 2.4vw, 1.7rem);
+  margin: 0 0 0.85rem;
+  color: var(--uucg-ink, #2a2a2a);
+  letter-spacing: -0.01em;
+}
+
+body.uucg-modern .uucg-page-content .uucg-about-intro p {
+  color: var(--uucg-ink-soft, #4a3f3a);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+body.uucg-modern .uucg-page-content .uucg-about-principles p {
+  color: var(--uucg-ink-soft, #4a3f3a);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0 0 1.25rem;
+}
+
+body.uucg-modern .uucg-page-content .uucg-about-principles ol {
+  list-style: none;
+  counter-reset: principles;
+  padding: 0;
+  margin: 0;
+}
+
+body.uucg-modern .uucg-page-content .uucg-about-principles li {
+  counter-increment: principles;
+  position: relative;
+  padding: 0.55rem 0 0.55rem 2.5rem;
+  color: var(--uucg-ink-soft, #4a3f3a);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  border-top: 1px solid var(--uucg-rule, rgba(0, 0, 0, 0.06));
+}
+
+body.uucg-modern .uucg-page-content .uucg-about-principles li:first-child {
+  border-top: 0;
+}
+
+body.uucg-modern .uucg-page-content .uucg-about-principles li::before {
+  content: counter(principles, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  font-family: "Fraunces", "Lora", Georgia, serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--uucg-primary, #5c4d8a);
+  letter-spacing: 0.04em;
+}
+
+body.uucg-modern .uucg-page-content .uucg-about-welcome {
+  margin: 1rem 0 0;
+}
+
+body.uucg-modern .uucg-page-content .uucg-about-welcome h2 {
+  font-family: "Fraunces", "Lora", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.6vw, 1.85rem);
+  margin: 0 0 1rem;
+  color: var(--uucg-ink, #2a2a2a);
+  letter-spacing: -0.01em;
+}
+
+body.uucg-modern .uucg-page-content .uucg-about-welcome p {
+  color: var(--uucg-ink-soft, #4a3f3a);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+  max-width: 60ch;
 }
