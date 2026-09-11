@@ -5211,3 +5211,119 @@ body.uucg-modern .uucg-home-newsletter .uucg-nl__fineprint {
 body.uucg-modern .uucg-home-newsletter .uucg-nl__hp {
   display: none;
 }
+
+/* =========================================================================
+   Shared page utilities — buttons, rules, callouts
+   ========================================================================= */
+
+body.uucg-modern .uucg-page-content .uucg-btn {
+  display: inline-block;
+  font-family: "Nunito", system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--uucg-radius-pill, 999px);
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+
+body.uucg-modern .uucg-page-content .uucg-btn:hover {
+  transform: translateY(-1px);
+}
+
+body.uucg-modern .uucg-page-content .uucg-btn-primary {
+  background: var(--uucg-primary);
+  color: #fff;
+}
+
+body.uucg-modern .uucg-page-content .uucg-btn-primary:hover {
+  background: var(--uucg-primary-deep, #3f3560);
+  color: #fff;
+}
+
+body.uucg-modern .uucg-page-content .uucg-btn-ghost {
+  background: transparent;
+  color: var(--uucg-primary);
+  border-color: var(--uucg-primary);
+}
+
+body.uucg-modern .uucg-page-content .uucg-btn-ghost:hover {
+  background: var(--uucg-primary-soft, #ebe6f5);
+  color: var(--uucg-primary-deep, #3f3560);
+}
+
+body.uucg-modern .uucg-page-content .uucg-rule {
+  border: 0;
+  border-top: 1px solid var(--uucg-rule, rgba(0, 0, 0, 0.08));
+  margin: 2.5rem 0;
+}
+
+/* Pledging page specifics ----------------------------------------------- */
+
+body.uucg-modern .uucg-page-content .uucg-pledge-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.25rem 0 2rem;
+}
+
+body.uucg-modern .uucg-page-content .uucg-pledge-fineprint {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+body.uucg-modern .uucg-page-content .uucg-pledge-fineprint li {
+  position: relative;
+  padding: 0.4rem 0 0.4rem 1.5rem;
+  color: var(--uucg-ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+body.uucg-modern .uucg-page-content .uucg-pledge-fineprint li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.95rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--uucg-primary);
+  opacity: 0.55;
+}
+
+body.uucg-modern .uucg-page-content .uucg-affirming {
+  background: var(--uucg-cream-deep, #f3e8dc);
+  border-radius: var(--uucg-radius, 1.25rem);
+  padding: 2rem 1.75rem;
+  margin: 2rem 0;
+}
+
+body.uucg-modern .uucg-page-content .uucg-affirming h2 {
+  margin-top: 0;
+  font-family: "Fraunces", "Lora", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.5vw, 1.85rem);
+  color: var(--uucg-ink);
+  text-align: center;
+}
+
+body.uucg-modern .uucg-page-content .uucg-affirming p {
+  color: var(--uucg-ink-soft);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin: 0.85rem 0 0;
+}
+
+body.uucg-modern .uucg-page-content .uucg-paypal {
+  text-align: center;
+  margin: 2.5rem 0 1rem;
+}
+
+body.uucg-modern .uucg-page-content .uucg-paypal p {
+  margin: 0.4rem 0;
+}
